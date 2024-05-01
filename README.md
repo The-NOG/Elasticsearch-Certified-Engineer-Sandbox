@@ -7,8 +7,12 @@
  ## Why did you...
 - **Set the version to 8.1.3?** The current exam is still on elasticsearch 8.1
 - **Set the elastic passwords to *elastic*?** It's a simple environment for studying, don't use for anything you care about or overthink it.
+- **Activate the trial?** The trial is required for cross cluster replication which is an exam topic.
 
 ## Other resources
 - Highly recommend the [repo by mr1716](https://github.com/mr1716/Elastic-Certified-Engineer-Exam-8.1).
 - The course on A cloud Guru/plural sight is pretty good. It was made for 7.13, but should be *mostly* relevant
 - The training from Elasticsearch is excellent. If you can swing it or make your company pay for it go for it.
+
+## Credit
+Credit where credit is due, the base of this is from [Elasticsearch themselves](https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html#docker-compose-file). I just modified it to have the extra small cluster for learning the cross cluster requirements.
