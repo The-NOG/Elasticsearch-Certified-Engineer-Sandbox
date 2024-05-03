@@ -80,6 +80,7 @@ services:
     volumes:
       - certs:/usr/share/elasticsearch/config/certs
       - maindata01:/usr/share/elasticsearch/data
+      - snapshot:/mnt/snapshot
     ports:
       - ${MAIN_ES_PORT}:9200
     environment:
@@ -100,6 +101,7 @@ services:
       - xpack.security.transport.ssl.certificate_authorities=certs/ca/ca.crt
       - xpack.security.transport.ssl.verification_mode=certificate
       - xpack.license.self_generated.type=${LICENSE}
+      - path.repo=/mnt/snapshot
     mem_limit: ${MEM_LIMIT}
     ulimits:
       memlock:
@@ -122,6 +124,7 @@ services:
     volumes:
       - certs:/usr/share/elasticsearch/config/certs
       - maindata02:/usr/share/elasticsearch/data
+      - snapshot:/mnt/snapshot
     environment:
       - node.name=main02
       - cluster.name=${MAIN_CLUSTER_NAME}
@@ -139,6 +142,7 @@ services:
       - xpack.security.transport.ssl.certificate_authorities=certs/ca/ca.crt
       - xpack.security.transport.ssl.verification_mode=certificate
       - xpack.license.self_generated.type=${LICENSE}
+      - path.repo=/mnt/snapshot
     mem_limit: ${MEM_LIMIT}
     ulimits:
       memlock:
@@ -161,6 +165,7 @@ services:
     volumes:
       - certs:/usr/share/elasticsearch/config/certs
       - maindata03:/usr/share/elasticsearch/data
+      - snapshot:/mnt/snapshot
     environment:
       - node.name=main03
       - cluster.name=${MAIN_CLUSTER_NAME}
@@ -178,6 +183,7 @@ services:
       - xpack.security.transport.ssl.certificate_authorities=certs/ca/ca.crt
       - xpack.security.transport.ssl.verification_mode=certificate
       - xpack.license.self_generated.type=${LICENSE}
+      - path.repo=/mnt/snapshot
     mem_limit: ${MEM_LIMIT}
     ulimits:
       memlock:
@@ -307,4 +313,6 @@ volumes:
   mainkibanadata:
     driver: local
   remotekibanadata:
+    driver: local
+  snapshot:
     driver: local
